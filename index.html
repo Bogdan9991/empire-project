@@ -1,42 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Empire RolePlay</title>
-    <style>
-        body {
-            background: black;
-            color: white;
-            text-align: center;
-            font-family: Arial;
-        }
+<meta charset="UTF-8">
+<title>Empire RolePlay</title>
+<style>
+/* ===== Фон с анимацией ===== */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+}
 
-        h1 {
-            color: magenta;
-        }
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
 
-        button {
-            background: magenta;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            font-size: 18px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
+/* ===== Заголовок ===== */
+h1 {
+    font-size: 60px;
+    color: magenta;
+    text-shadow: 0 0 10px magenta, 0 0 20px purple;
+    animation: glow 2s infinite alternate;
+    margin-bottom: 10px;
+}
+    @keyframes glow {
+    from {text-shadow: 0 0 10px magenta, 0 0 20px purple;}
+    to {text-shadow: 0 0 20px #ff00ff, 0 0 40px #800080;}
+    }
+    /* ===== Онлайн индикатор ===== */
+.online-status {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
+    animation: pulse 1.5s infinite alternate;
+}
 
-        button:hover {
-            background: purple;
-        }
-    </style>
+@keyframes pulse {
+    from {opacity: 0.7;}
+    to {opacity: 1;}
+    }
+    /* ===== Кнопка “Скачать” ===== */
+button {
+    background: magenta;
+    color: white;
+    padding: 20px 50px;
+    font-size: 22px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 0 15px magenta, 0 0 30px purple;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+    button::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transform: skewX(-20deg);
+    transition: 0.5s;
+    }
+    button:hover::after {
+    left: 200%;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px magenta, 0 0 50px purple;
+}
+    /* ===== Подпись ===== */
+footer {
+    position: absolute;
+    bottom: 20px;
+    font-size: 14px;
+    color: #aaa;
+}
+</style>
 </head>
 <body>
 
-    <h1>Empire RolePlay</h1>
-    <p>Скачай лаунчер прямо сейчас</p>
+<h1>Empire RolePlay</h1>
+<div class="online-status">Онлайн: 127 игроков</div>
 
-    <a href="https://t.me/empire560/128">
-        <button>Скачать</button>
-    </a>
+<a href="https://t.me/empire560">
+    <button>Скачать лаунчер</button>
+</a>
+
+<footer>© 2026 Empire RP</footer>
 
 </body>
 </html>
