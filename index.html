@@ -1,106 +1,114 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Empire RolePlay</title>
-<style>
-/* ===== Фон с анимацией ===== */
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    height: 100vh;
-    background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    overflow: hidden;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire Roleplay | Начни игру</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        
+        body {
+            background: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+        }
 
-@keyframes gradientBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
+        /* Задний фон с крутым градиентом или картинкой */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.wallpaperscraft.ru'); /* Сюда свою картинку */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
 
-/* ===== Заголовок ===== */
-h1 {
-    font-size: 60px;
-    color: magenta;
-    text-shadow: 0 0 10px magenta, 0 0 20px purple;
-    animation: glow 2s infinite alternate;
-    margin-bottom: 10px;
-}
-    @keyframes glow {
-    from {text-shadow: 0 0 10px magenta, 0 0 20px purple;}
-    to {text-shadow: 0 0 20px #ff00ff, 0 0 40px #800080;}
-    }
-    /* ===== Онлайн индикатор ===== */
-.online-status {
-    font-size: 18px;
-    margin-bottom: 40px;
-    color: #0f0;
-    text-shadow: 0 0 5px #0f0;
-    animation: pulse 1.5s infinite alternate;
-}
+        .logo {
+            font-size: 80px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 69, 0, 0.8);
+        }
 
-@keyframes pulse {
-    from {opacity: 0.7;}
-    to {opacity: 1;}
-    }
-    /* ===== Кнопка “Скачать” ===== */
-button {
-    background: magenta;
-    color: white;
-    padding: 20px 50px;
-    font-size: 22px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 0 15px magenta, 0 0 30px purple;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-    button::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: rgba(255,255,255,0.2);
-    transform: skewX(-20deg);
-    transition: 0.5s;
-    }
-    button:hover::after {
-    left: 200%;
-}
+        .logo span { color: #ff4500; }
 
-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px magenta, 0 0 50px purple;
-}
-    /* ===== Подпись ===== */
-footer {
-    position: absolute;
-    bottom: 20px;
-    font-size: 14px;
-    color: #aaa;
-}
-</style>
+        .description {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            color: #ccc;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-download {
+            background: #ff4500;
+            color: white;
+            box-shadow: 0 10px 20px rgba(255, 69, 0, 0.3);
+        }
+
+        .btn-download:hover {
+            transform: scale(1.05);
+            background: #ff5722;
+        }
+
+        .btn-tg {
+            background: #24A1DE;
+            color: white;
+        }
+
+        .btn-tg:hover {
+            transform: scale(1.05);
+            background: #34B1EE;
+        }
+
+        /* Анимация появления */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
 
-<h1>Empire RolePlay</h1>
-<div class="online-status">Онлайн: 127 игроков</div>
-
-<a href="https://t.me/empire560">
-    <button>Скачать лаунчер</button>
-</a>
-
-<footer>© 2026 Empire RP</footer>
+    <section class="hero">
+        <div class="fade-in">
+            <h1 class="logo">EMPIRE <span>RP</span></h1>
+            <p class="description">Погрузись в мир реальной жизни на лучшем мобильном проекте. Стань тем, кем всегда мечтал!</p>
+            
+            <div class="btn-container">
+                <!-- Твоя ссылка на скачивание -->
+                <a href="https://t.me/empire560" class="btn btn-download">Скачать Лаунчер</a>
+                <a href="https://t.me/empire560" class="btn btn-tg">Наш Telegram</a>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
