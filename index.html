@@ -1,81 +1,83 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empire Roleplay</title>
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-    <style>
-        body, html { margin: 0; padding: 0; height: 100%; width: 100%; font-family: 'Roboto', sans-serif; background: #000; color: #fff; overflow: hidden; }
-        
-        /* Фон с эффектом затемнения */
-        .bg {
-            position: absolute;
-            width: 100%; height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
-                        url('https://wallpapershome.com'); /* Качественный фон */
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-        }
+/* ИНСТРУКЦИЯ */
+        .start-section { padding: 100px 5%; text-align: center; }
+        .start-section h3 { font-size: 2.5rem; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; }
+        .start-section h3 span { color: #ff0000; }
+        .start-section p { max-width: 700px; margin: 0 auto 50px; color: #888; font-size: 1.1rem; }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            padding: 20px;
+        .game-screen {
+            max-width: 1000px; margin: 0 auto;
+            border: 10px solid #111; border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            overflow: hidden;
         }
+        .game-screen img { width: 100%; display: block; }
 
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            color: #ff00ff;
-            text-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff;
-            letter-spacing: 3px;
+        /* АДАПТИВНОСТЬ ПОД МОБИЛКИ */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .side-card { width: 100%; max-width: 350px; }
         }
-
-        .online {
-            color: #00ff00;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            text-shadow: 0 0 10px #00ff00;
-        }
-
-        .btn {
-            background: linear-gradient(45deg, #ff00ff, #800080);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
-            transition: 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
-            border: 2px solid #fff;
-        }
-
-        .footer { position: absolute; bottom: 20px; font-size: 0.8rem; opacity: 0.5; }
     </style>
 </head>
 <body>
-    <div class="bg"></div>
-    <div class="container">
-        <h1>Empire RP</h1>
-        <div class="online">● Игроков онлайн: 127</div>
-        <a href="https://t.me/empire560" class="btn">СКАЧАТЬ ЛАУНЧЕР</a>
-        <div class="footer">© 2026 Empire Role Play Project</div>
-    </div>
+
+    <!-- ШАПКА -->
+    <header>
+        <div class="logo">
+            <!-- Здесь твой логотип волка/медведя -->
+            <img src="https://i.ibb.co" alt="Empire Logo">
+        </div>
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- ПЕРВЫЙ ЭКРАН -->
+    <section class="hero">
+        <h2>ДОБРО ПОЖАЛОВАТЬ</h2>
+        <h1>EMPIRE ROLEPLAY</h1>
+        <p>Отправляйся в мир безграничных возможностей, мы даём тебе возможность тебе стать кем угодно здесь и сразу!</p>
+        
+        <a href="https://t.me/empire560" class="btn-main">Начать играть</a>
+
+        <div class="scroll-hint">
+            Листай дальше, чтобы узнать больше <br> ▼
+        </div>
+    </section>
+
+    <!-- ВЫБОР СТОРОНЫ -->
+    <section class="sides-section">
+        <h3>Выбери свою сторону</h3>
+        <div class="sides-container">
+            <!-- Карточка Гос -->
+            <div class="side-card">
+                <img src="https://russia-online.org" alt="Закон">
+                <div class="side-label label-blue">Жизнь по закону</div>
+            </div>
+            <!-- Карточка Криминал -->
+            <div class="side-card">
+                <img src="https://russia-online.org" alt="Криминал">
+                <div class="side-label label-red">Бандитская жизнь</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ИНСТРУКЦИЯ ПО ИГРЕ -->
+    <section class="start-section">
+        <h3>Начинай <span>играть!</span></h3>
+        <p>Играть на нашем проекте очень просто. Достаточно скачать наш лаунчер, который сам установит все необходимые компоненты игры.</p>
+        
+        <div class="game-screen">
+            <!-- Скриншот из игры -->
+            <img src="https://i.ytimg.com" alt="Empire RP Gameplay">
+        </div>
+    </section>
+
+    <footer style="padding: 40px; text-align: center; font-size: 0.8rem; opacity: 0.4;">
+        © 2026 Empire Role Play. Все права защищены.
+    </footer>
+
 </body>
 </html>
