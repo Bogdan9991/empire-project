@@ -3,112 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empire Roleplay | Начни игру</title>
+    <title>Empire Roleplay</title>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; font-family: 'Roboto', sans-serif; background: #000; color: #fff; overflow: hidden; }
         
-        body {
-            background: #0a0a0a;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        /* Задний фон с крутым градиентом или картинкой */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.wallpaperscraft.ru'); /* Сюда свою картинку */
+        /* Фон с эффектом затемнения */
+        .bg {
+            position: absolute;
+            width: 100%; height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
+                        url('https://wallpapershome.com'); /* Качественный фон */
             background-size: cover;
             background-position: center;
+            z-index: -1;
+        }
+
+        .container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            height: 100vh;
             text-align: center;
+            padding: 20px;
         }
 
-        .logo {
-            font-size: 80px;
-            font-weight: 900;
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
             text-transform: uppercase;
-            letter-spacing: 5px;
             margin-bottom: 10px;
-            color: #fff;
-            text-shadow: 0 0 20px rgba(255, 69, 0, 0.8);
+            color: #ff00ff;
+            text-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff;
+            letter-spacing: 3px;
         }
 
-        .logo span { color: #ff4500; }
-
-        .description {
-            font-size: 20px;
+        .online {
+            color: #00ff00;
+            font-weight: bold;
+            font-size: 1.2rem;
             margin-bottom: 40px;
-            max-width: 600px;
-            color: #ccc;
-        }
-
-        .btn-container {
-            display: flex;
-            gap: 20px;
+            text-shadow: 0 0 10px #00ff00;
         }
 
         .btn {
-            padding: 18px 45px;
-            font-size: 18px;
-            font-weight: 700;
-            text-decoration: none;
+            background: linear-gradient(45deg, #ff00ff, #800080);
+            color: white;
+            padding: 15px 40px;
             border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
             transition: 0.3s;
-            text-transform: uppercase;
+            border: 2px solid transparent;
         }
 
-        .btn-download {
-            background: #ff4500;
-            color: white;
-            box-shadow: 0 10px 20px rgba(255, 69, 0, 0.3);
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+            border: 2px solid #fff;
         }
 
-        .btn-download:hover {
-            transform: scale(1.05);
-            background: #ff5722;
-        }
-
-        .btn-tg {
-            background: #24A1DE;
-            color: white;
-        }
-
-        .btn-tg:hover {
-            transform: scale(1.05);
-            background: #34B1EE;
-        }
-
-        /* Анимация появления */
-        .fade-in {
-            animation: fadeIn 1.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .footer { position: absolute; bottom: 20px; font-size: 0.8rem; opacity: 0.5; }
     </style>
 </head>
 <body>
-
-    <section class="hero">
-        <div class="fade-in">
-            <h1 class="logo">EMPIRE <span>RP</span></h1>
-            <p class="description">Погрузись в мир реальной жизни на лучшем мобильном проекте. Стань тем, кем всегда мечтал!</p>
-            
-            <div class="btn-container">
-                <!-- Твоя ссылка на скачивание -->
-                <a href="https://t.me/empire560" class="btn btn-download">Скачать Лаунчер</a>
-                <a href="https://t.me/empire560" class="btn btn-tg">Наш Telegram</a>
-            </div>
-        </div>
-    </section>
-
+    <div class="bg"></div>
+    <div class="container">
+        <h1>Empire RP</h1>
+        <div class="online">● Игроков онлайн: 127</div>
+        <a href="https://t.me/empire560" class="btn">СКАЧАТЬ ЛАУНЧЕР</a>
+        <div class="footer">© 2026 Empire Role Play Project</div>
+    </div>
 </body>
 </html>
