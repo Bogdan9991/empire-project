@@ -3,59 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empire RolePlay</title>
+    <title>Empire RolePlay | Официальный сайт</title>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <!-- Подключаем библиотеку анимаций -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com""")/>>
+    
     <style>
-        /* Стили — аккуратно копируй этот блок */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background: #000; color: #fff; overflow-x: hidden; }
+        body { background: #050505; color: #fff; overflow-x: hidden; scroll-behavior: smooth; }
+
+        /* ВЕРХНЕЕ МЕНЮ */
+        header {
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            padding: 20px 8%; display: flex; justify-content: space-between; align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-size: 24px; font-weight: 900; text-transform: uppercase; color: #ff0000; letter-spacing: 2px; }
         
+        nav a { 
+            color: #fff; text-decoration: none; font-weight: 700; margin-left: 30px; 
+            font-size: 14px; text-transform: uppercase; transition: 0.3s; opacity: 0.7;
+        }
+        nav a:hover { opacity: 1; color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+
+        /* ГЛАВНЫЙ БЛОК С АНИМАЦИЕЙ */
         .hero {
             height: 100vh; width: 100%;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), 
-                        url('https://i.ytimg.com'); 
+                        url('https://i.ytimg.com');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             text-align: center; padding: 20px;
         }
 
-        h1 { font-size: 3rem; font-weight: 900; color: #ff0000; text-transform: uppercase; margin-bottom: 20px; }
-        .btn-play {
-            background: #ff0000; color: #fff; padding: 15px 40px; border-radius: 10px;
-            font-weight: 700; text-decoration: none; text-transform: uppercase;
-            box-shadow: 0 0 20px rgba(255,0,0,0.5);
+        .hero h1 { 
+            font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; text-transform: uppercase; 
+            margin-bottom: 20px; line-height: 0.9;
         }
+        .hero h1 span { color: #ff0000; text-shadow: 0 0 30px rgba(255,0,0,0.8); }
 
-        .sides { padding: 50px 20px; text-align: center; }
-        .sides-box { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
-        .card { width: 280px; border-radius: 15px; overflow: hidden; border: 1px solid #333; position: relative; }
-        .card img { width: 100%; display: block; }
-        .badge { position: absolute; bottom: 15px; width: 100%; text-align: center; font-weight: 900; text-transform: uppercase; }
-        .blue { color: #0084ff; }
-        .red { color: #ff0000; }
+        /* КРУТАЯ АНИМИРОВАННАЯ КНОПКА */
+        .btn-main {
+            position: relative; padding: 22px 70px; font-size: 1.4rem; font-weight: 900;
+            text-decoration: none; color: #fff; text-transform: uppercase;
+            background: linear-gradient(45deg, #ff0000, #990000);
+            border-radius: 15px; border: none; overflow: hidden;
+            box-shadow: 0 10px 40px rgba(255, 0, 0, 0.4);
+            transition: 0.4s; z-index: 1;
+        }
+        .btn-main:hover { transform: scale(1.08) translateY(-5px); box-shadow: 0 20px 50px rgba(255, 0, 0, 0.7); }
+        
+        /* Блеск на кнопке */
+        .btn-main::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+            transform: skewX(-25deg); transition: 0.5s;
+        }
+        .btn-main:hover::before { left: 150%; }
+
+        /* СЕКЦИЯ С КАРТОЧКАМИ */
+        .sides { padding: 100px 5%; text-align: center; }
+        .card-wrap { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px; }
+        
+        .card {
+            width: 340px; height: 480px; border-radius: 30px; overflow: hidden;
+            position: relative; cursor: pointer; border: 2px solid rgba(255,255,255,0.05);
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .card:hover { transform: translateY(-25px); border-color: #ff0000; }
+        .card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); transition: 0.6s; }
+        .card:hover img { filter: brightness(1.1) scale(1.1); }
+
+        .card-info {
+            position: absolute; bottom: 0; width: 100%; padding: 40px 20px;background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            text-align: center;
+        }
+        .card-info h3 { font-size: 1.5rem; text-transform: uppercase; font-weight: 900; }
+        .blue { color: #00a2ff; text-shadow: 0 0 15px #00a2ff; }
+        .red { color: #ff0000; text-shadow: 0 0 15px #ff0000; }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 768px) {
+            nav { display: none; } /* Прячем меню на мобилках для чистоты */
+            .hero h1 { font-size: 3.5rem; }
+            .card { width: 90%; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- ШАПКА С ССЫЛКАМИ -->
+    <header class="animateanimated animatefadeInDown">
+        <div class="logo">EMPIRE RP</div>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="https://drive.google.com/file/d/1xlMa3pVQ3rczxZRriu9m5SA8qBDUih-W/view?usp=drivesdk" target="_blank">Форум</a>
+            <a href="https://empire-roleplay.hgweb.ru" target="_blank">Телеграм</a>
+            <a href="https://t.me/empire560" target="_blank">Донат</a>
+        </nav>
+    </header>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
     <section class="hero">
-        <p>ДОБРО ПОЖАЛОВАТЬ</p>
-        <h1>EMPIRE RP</h1>
-        <a href="https://t.me/empire560" class="btn-play">Начать играть</a>
+        <div class="animateanimated animatefadeInUp">
+            <p style="letter-spacing: 6px; margin-bottom: 10px; color: #ff0000; font-weight: 700;">MOBILE ROLEPLAY PROJECT</p>
+            <h1>EMPIRE <span>RP</span></h1>
+            <p style="color: #ccc; margin-bottom: 40px; max-width: 500px; font-size: 18px;">
+                Стань частью великой империи. Выбери свой путь и начни играть прямо сейчас!
+            </p>
+            <a href="https://drive.google.com/file/d/1xlMa3pVQ3rczxZRriu9m5SA8qBDUih-W/view?usp=drivesdk" class="btn-main">Начать играть</a>
+        </div>
     </section>
 
+    <!-- КАРТОЧКИ ПЕРСОНАЖЕЙ -->
     <section class="sides">
-        <h2>ВЫБЕРИ СВОЮ СТОРОНУ</h2>
-        <div class="sides-box">
-            <div class="card">
+        <h2 class="animateanimated animatefadeIn">ВЫБЕРИ СВОЮ <span>СТОРОНУ</span></h2>
+        <div class="card-wrap">
+            <div class="card animateanimated animatezoomIn">
                 <img src="https://russia-online.org" alt="Закон">
-                <div class="badge blue">Жизнь по закону</div>
+                <div class="card-info">
+                    <h3 class="blue">Жизнь по закону</h3>
+                </div>
             </div>
-            <div class="card">
+            <div class="card animateanimated animatezoomIn" style="animation-delay: 0.2s;">
                 <img src="https://russia-online.org" alt="Криминал">
-                <div class="badge red">Бандитская жизнь</div>
+                <div class="card-info">
+                    <h3 class="red">Бандитский путь</h3>
+                </div>
             </div>
         </div>
     </section>
+
+    <footer style="padding: 60px; text-align: center; opacity: 0.3; font-size: 12px; border-top: 1px solid #111;">
+        © 2026 EMPIRE ROLEPLAY. DEVELOPED FOR MOBILE GAMING.
+    </footer>
 
 </body>
 </html>
